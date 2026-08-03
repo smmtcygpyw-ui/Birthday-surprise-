@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffe6ea 0%, #fdf6e3 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #4a4a4a;
+}
+
+h1, h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: #ff7b93;
+    margin-bottom: 15px;
+}
+
+/* Screen Transitions */
+.screen {
+    display: none;
+    animation: fadeIn 0.8s ease-in-out;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+.shake {
+    animation: shake 0.4s;
+}
+
+/* Card Style */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(255, 123, 147, 0.15);
+    text-align: center;
+    width: 100%;
+}
+
+.scrollable-card {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 10px 5px;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.primary-btn {
+    background: #ff7b93;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 123, 147, 0.4);
+}
+
+.secondary-btn {
+    background: #f1f1f1;
+    color: #4a4a4a;
+}
+
+/* Keypad / Passcode */
+.passcode-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #ff7b93;
+    background: transparent;
+    transition: background 0.3s;
+}
+
+.dot.filled {
+    background: #ff7b93;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.key {
+    background: #fff4f6;
+    border: 2px solid #ffe6ea;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-family: 'Fredoka', sans-serif;
+    color: #ff7b93;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.key:active {
+    background: #ff7b93;
+    color: white;
+}
+
+.clear-btn { font-size: 1.2rem; background: #ffeeee; color: #ff4d4d; border-color: #ffcccc;}
+.unlock-btn { font-size: 1.1rem; background: #e6ffe6; color: #2eb82e; border-color: #ccffcc;}
+
+.error {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Typography & Emojis */
+.big-text { font-size: 1.2rem; margin-bottom: 20px; line-height: 1.5;}
+.emoji-huge { font-size: 4rem; margin: 10px 0; }
+.bday-title { font-size: 2.5rem; line-height: 1.2; margin: 10px 0; }
+
+.letter {
+    text-align: left;
+    background: #fff4f6;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.letter p { margin-bottom: 15px; }
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #ffe6ea;
+}
+
+/* Music Toggle Button */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: white;
+    border: 2px solid #ff7b93;
+    color: #ff7b93;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-family: 'Fredoka', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjust for extremely small phones */
+@media (max-width: 350px) {
+    .key { padding: 10px; font-size: 1.2rem; }
+    .gallery-grid img { height: 120px; }
+}
