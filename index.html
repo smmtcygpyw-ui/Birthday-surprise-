@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayra! 🥳</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a cute, bubbly look -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background Music & Controls -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn hidden">🎵 Pause Music</button>
+
+    <!-- SCREEN 1: Passcode -->
+    <section id="passcode-screen" class="screen active">
+        <div class="card">
+            <h2>Enter Passcode 🔒</h2>
+            <p class="subtitle">Only the bestie knows this...</p>
+            <div class="passcode-display">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <p id="error-msg" class="error hidden">Wrong Passcode! Try again 🙄</p>
+            <div class="keypad">
+                <button class="key" onclick="pressKey(1)">1</button>
+                <button class="key" onclick="pressKey(2)">2</button>
+                <button class="key" onclick="pressKey(3)">3</button>
+                <button class="key" onclick="pressKey(4)">4</button>
+                <button class="key" onclick="pressKey(5)">5</button>
+                <button class="key" onclick="pressKey(6)">6</button>
+                <button class="key" onclick="pressKey(7)">7</button>
+                <button class="key" onclick="pressKey(8)">8</button>
+                <button class="key" onclick="pressKey(9)">9</button>
+                <button class="key clear-btn" onclick="clearPass()">C</button>
+                <button class="key" onclick="pressKey(0)">0</button>
+                <button class="key unlock-btn" onclick="checkPass()">Unlock</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 2: The Question -->
+    <section id="question-screen" class="screen hidden">
+        <div class="card">
+            <h1>Hey Bestie! 👯‍♀️</h1>
+            <p class="big-text">I made something special for my favorite Mahila Mitra. Do you wanna see it?</p>
+            <div class="btn-group">
+                <button class="btn primary-btn" onclick="nextScreen('bday-screen')">YES! ✨</button>
+                <button class="btn secondary-btn" onclick="nextScreen('no-screen')">NO 😒</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 2.5: If she clicks NO -->
+    <section id="no-screen" class="screen hidden">
+        <div class="card">
+            <h1>Why did you click NO?! 😤</h1>
+            <p>You don't have a choice, Sayra! Go back and click YES.</p>
+            <button class="btn primary-btn" onclick="nextScreen('question-screen')">Try Again 🙄</button>
+        </div>
+    </section>
+
+    <!-- SCREEN 3: Happy Birthday -->
+    <section id="bday-screen" class="screen hidden">
+        <div class="card">
+            <div class="emoji-huge">🎂🎉🥳</div>
+            <h1 class="bday-title">HAPPY BIRTHDAY<br>SAYRA!</h1>
+            <p>To the most amazing friend ever!</p>
+            <button class="btn primary-btn" onclick="nextScreen('wish-screen')">Click for your wish 💌</button>
+        </div>
+    </section>
+
+    <!-- SCREEN 4: The Wish -->
+    <section id="wish-screen" class="screen hidden">
+        <div class="card scrollable-card">
+            <h2>My Wish For You 🌟</h2>
+            <div class="letter">
+                <p>Happiest Birthday, Sayra! 🌻</p>
+                <p>I just wanted to take a moment to appreciate how awesome you are. Thank you for always being there, for the endless jokes, the late-night talks, and for just being the absolute best Mahila Mitra anyone could ask for.</p>
+                <p>May this year bring you all the success, happiness, good health, and amazing memories. Don't ever change, because you're perfect just the way you are.</p>
+                <p>Let's make this year even crazier than the last!</p>
+                <p><strong>- Your Best Friend ✌️</strong></p>
+            </div>
+            <button class="btn primary-btn" onclick="nextScreen('hug-screen')">Next 👉</button>
+        </div>
+    </section>
+
+    <!-- SCREEN 5: Virtual Hug -->
+    <section id="hug-screen" class="screen hidden">
+        <div class="card">
+            <h1>Sending you a massive...</h1>
+            <div class="emoji-huge">🫂✨</div>
+            <h2>VIRTUAL HUG!</h2>
+            <p>Because I can't be there to squish you right now!</p>
+            <button class="btn primary-btn" onclick="nextScreen('gallery-screen')">See our memories 📸</button>
+        </div>
+    </section>
+
+    <!-- SCREEN 6: Gallery -->
+    <section id="gallery-screen" class="screen hidden">
+        <div class="card gallery-card">
+            <h2>Our Best Moments 📸</h2>
+            <div class="gallery-grid">
+                <img src="photo1.png" alt="Sayra 1">
+                <img src="photo2.png" alt="Sayra 2">
+                <img src="photo3.png" alt="Sayra 3">
+                <img src="photo4.png" alt="Sayra 4">
+                <img src="photo5.png" alt="Sayra 5">
+                <img src="photo6.png" alt="Sayra 6">
+                <img src="photo7.png" alt="Sayra 7">
+                <img src="photo8.png" alt="Sayra 8">
+            </div>
+            <button class="btn primary-btn" onclick="startAgain()">Relive the Experience 🔄</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
